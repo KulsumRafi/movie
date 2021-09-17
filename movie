@@ -1,0 +1,12 @@
+import sqlite3
+conn = sqlite3.connect('movie.db')
+
+c = conn.cursor()
+
+c.execute("SELECT * FROM moviee")
+items = c.fetchall()
+print("MOVIE_NAME" + "\tACTOR/ACTRESS_NAME" + "\tDIRECTOR_NAME" + "\tYEAR")
+for item in items:
+	print(item[0] + "\t" + item[1] + "\t" + item[2] + "\t" + str(item[3]))
+conn.commit()
+
